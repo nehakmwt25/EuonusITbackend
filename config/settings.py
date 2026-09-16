@@ -37,7 +37,6 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     'euonusitbackend-production.up.railway.app',
-    'https://euonus-it.vercel.app/'
 ]
 
 
