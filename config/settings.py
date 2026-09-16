@@ -113,12 +113,16 @@ TEMPLATES = [
 # DATABASE
 # =========================
 
+# =========================
+# DATABASE
+# =========================
+
 DATABASE_URL = os.getenv(
     'DATABASE_URL',
     'sqlite:///db.sqlite3'
 )
 
-if DATABASE_URL.startswith('postgres'):
+if DATABASE_URL.startswith(('postgres://', 'postgresql://')):
 
     parsed = urlparse(DATABASE_URL)
 
