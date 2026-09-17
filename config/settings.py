@@ -113,10 +113,6 @@ TEMPLATES = [
 # DATABASE
 # =========================
 
-# =========================
-# DATABASE
-# =========================
-
 DATABASE_URL = os.getenv(
     'DATABASE_URL',
     'sqlite:///db.sqlite3'
@@ -205,12 +201,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # =========================
 
 CORS_ALLOWED_ORIGINS = [
-    "https://euonus-it.vercel.app",
-    "https://euonus-it-ynbx.vercel.app",
-    "http://localhost:5173",
+    'https://euonus-it.vercel.app',
+    'https://euonus-it-ynbx.vercel.app',
+    'http://localhost:5173',
+    'http://localhost:5174',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    'https://euonus-it.vercel.app',
+    'https://euonus-it-ynbx.vercel.app',
     'https://euonusitbackend-production.up.railway.app',
 ]
 
