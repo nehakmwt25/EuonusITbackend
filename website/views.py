@@ -1,9 +1,14 @@
 from django.db.models import Q
+from django.views.generic import TemplateView
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from .models import Award, Blog, Client, Company, Contact, FAQ, FAQQuery, Industry, JobApplication, JobOpening, Project, Service, Testimonial, WhyChooseUs
 from .serializers import AwardSerializer, BlogSerializer, ClientSerializer, CompanySerializer, ContactSerializer, FAQQuerySerializer, FAQSerializer, IndustrySerializer, JobApplicationSerializer, JobOpeningSerializer, ProjectSerializer, ServiceSerializer, TestimonialSerializer, WhyChooseUsSerializer
+
+
+class HomePageView(TemplateView):
+    template_name = 'website/home.html'
 
 
 class PublicViewSet(viewsets.ReadOnlyModelViewSet):

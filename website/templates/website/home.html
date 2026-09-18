@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Euonus IT</title>
+    <style>
+      :root {
+        --bg: #07111f;
+        --bg-soft: #0e1d32;
+        --panel: rgba(15, 25, 42, 0.9);
+        --primary: #5eead4;
+        --primary-strong: #2dd4bf;
+        --text: #e5eefb;
+        --muted: #aac0d9;
+        --border: rgba(148, 163, 184, 0.2);
+        --accent: #93c5fd;
+      }
+
+      * { box-sizing: border-box; }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, var(--bg), var(--bg-soft));
+        color: var(--text);
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 18px;
+      }
+
+      .shell {
+        width: min(1100px, 100%);
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 24px;
+        box-shadow: 0 30px 60px rgba(15, 23, 42, 0.55);
+        overflow: hidden;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 36px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .brand {
+        font-size: 1.4rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .brand span {
+        color: var(--primary);
+      }
+
+      .nav {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+
+      .nav a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.96rem;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 28px;
+        padding: 56px 36px 30px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(94, 234, 212, 0.08);
+        color: var(--primary);
+        border: 1px solid rgba(94, 234, 212, 0.2);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 4vw, 4.1rem);
+        line-height: 1.05;
+        margin: 18px 0 16px;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.08rem;
+        line-height: 1.7;
+        max-width: 58ch;
+      }
+
+      .cta-row {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        margin-top: 28px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 22px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn.primary {
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: #06232d;
+      }
+
+      .btn.secondary {
+        border: 1px solid var(--border);
+        color: var(--text);
+        background: rgba(148, 163, 184, 0.04);
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+        margin-top: 36px;
+      }
+
+      .stat {
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 18px 16px;
+      }
+
+      .stat strong {
+        display: block;
+        font-size: 1.55rem;
+        margin-bottom: 4px;
+        color: var(--accent);
+      }
+
+      .stat span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: linear-gradient(180deg, rgba(59,130,246,0.12), rgba(15,25,42,0.2));
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 22px;
+      }
+
+      .card {
+        background: rgba(15, 23, 42, 0.8);
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        padding: 20px;
+      }
+
+      .mini-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 14px;
+      }
+
+      .mini-list li {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text);
+      }
+
+      .dot {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background: var(--primary);
+        box-shadow: 0 0 18px rgba(94,234,212,.8);
+      }
+
+      .api-box {
+        margin-top: 20px;
+        border-top: 1px solid var(--border);
+        padding-top: 18px;
+      }
+
+      .api-box code {
+        display: inline-block;
+        background: rgba(15, 23, 42, 0.8);
+        color: var(--primary);
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 820px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 18px;
+        }
+
+        .stats {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand">Euonus <span>IT</span></div>
+        <nav class="nav" aria-label="Main navigation">
+          <a href="#services">Services</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div>
+          <div class="eyebrow">Digital Growth Partner</div>
+          <h1>Build smarter digital experiences for your business.</h1>
+          <p class="lead">
+            Euonus IT helps brands launch scalable websites, modern digital systems, and product experiences
+            that drive clarity, performance, and long-term value.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="/api/services/">Explore API</a>
+            <a class="btn secondary" href="/admin/">Admin Panel</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Client-focused delivery</span>
+            </div>
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Support mindset</span>
+            </div>
+            <div class="stat">
+              <strong>Fast</strong>
+              <span>Launch-ready systems</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="Euonus highlights">
+          <div class="card">
+            <ul class="mini-list">
+              <li><span class="dot"></span> Custom web solutions</li>
+              <li><span class="dot"></span> IT consulting & strategy</li>
+              <li><span class="dot"></span> Secure, scalable platforms</li>
+              <li><span class="dot"></span> Experience-first UI/UX</li>
+            </ul>
+
+            <div class="api-box">
+              <code>/api/services/</code>
+            </div>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>

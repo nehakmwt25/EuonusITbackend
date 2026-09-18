@@ -42,3 +42,9 @@ class PublicApiTests(APITestCase):
         }, format='multipart')
         self.assertEqual(response.status_code, 400)
         self.assertIn('resume', response.data['errors'])
+
+    def test_root_page_renders_ui(self):
+        response = self.client.get('/')
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'Euonus IT')
+        self.assertContains(response, '/api/services/')
