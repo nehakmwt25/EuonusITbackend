@@ -227,8 +227,11 @@ JAZZMIN_SETTINGS = {
     'site_header': 'Euonus IT',
     'site_brand': 'Euonus IT',
     'welcome_sign': 'Welcome to Euonus IT Admin',
+    'copyright': 'Euonus IT',
     'show_sidebar': True,
     'navigation_expanded': True,
+    'custom_css': 'admin/css/admin.css',
+    'use_google_fonts_cdn': False,
     'hide_apps': [],
     'hide_models': [],
     'order_with_respect_to': ['website', 'auth'],
@@ -244,13 +247,20 @@ JAZZMIN_SETTINGS = {
 }
 
 JAZZMIN_UI_TWEAKS = {
-    'theme': 'darkly',
+    'theme': 'flatly',
     'dark_mode_theme': 'darkly',
-    'light_mode_theme': 'flatly',
-    'navbar': 'navbar-dark bg-primary',
+    'navbar': 'navbar-white navbar-light',
     'sidebar': 'sidebar-dark-primary',
-    'brand_colour': 'navbar-primary',
-    'accent': '#2c7be5',
+    'brand_colour': 'navbar-lightblue',
+    'accent': 'accent-info',
+    'button_classes': {
+        'primary': 'btn-info',
+        'secondary': 'btn-outline-secondary',
+        'info': 'btn-info',
+        'success': 'btn-success',
+        'warning': 'btn-warning',
+        'danger': 'btn-danger',
+    },
     'show_ui_builder': False,
 }
 
