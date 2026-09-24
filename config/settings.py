@@ -46,6 +46,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'corsheaders',
+    'jazzmin',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -217,6 +218,41 @@ CSRF_TRUSTED_ORIGINS = [
 # =========================
 # DJANGO REST FRAMEWORK
 # =========================
+
+# =========================
+# JAZZMIN ADMIN THEME
+# =========================
+JAZZMIN_SETTINGS = {
+    'site_title': 'Euonus IT Admin',
+    'site_header': 'Euonus IT',
+    'site_brand': 'Euonus IT',
+    'welcome_sign': 'Welcome to Euonus IT Admin',
+    'show_sidebar': True,
+    'navigation_expanded': True,
+    'hide_apps': [],
+    'hide_models': [],
+    'order_with_respect_to': ['website', 'auth'],
+    'icons': {
+        'website.service': 'fas fa-cogs',
+        'website.project': 'fas fa-briefcase',
+        'website.blog': 'fas fa-newspaper',
+        'website.contact': 'fas fa-envelope',
+        'website.jobopening': 'fas fa-user-tie',
+        'website.company': 'fas fa-building',
+        'website.client': 'fas fa-users',
+    },
+}
+
+JAZZMIN_UI_TWEAKS = {
+    'theme': 'darkly',
+    'dark_mode_theme': 'darkly',
+    'light_mode_theme': 'flatly',
+    'navbar': 'navbar-dark bg-primary',
+    'sidebar': 'sidebar-dark-primary',
+    'brand_colour': 'navbar-primary',
+    'accent': '#2c7be5',
+    'show_ui_builder': False,
+}
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
