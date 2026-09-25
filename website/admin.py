@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib import admin
 
-from .models import Award, Blog, Client, Company, Contact, FAQQuery, Industry, JobApplication, JobOpening, Project, Service, Testimonial, WhyChooseUs
+from .models import Award, Blog, Client, Company, Contact, FAQQuery, Industry, JobApplication, JobOpening, Opening, Project, Service, Testimonial, WhyChooseUs
 
 
 class ServiceAdminForm(forms.ModelForm):
@@ -118,9 +118,9 @@ class AwardAdmin(admin.ModelAdmin):
 
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
-    list_display = ('name', 'website', 'is_active')
-    list_filter = ('is_active',)
-    search_fields = ('name',)
+    fields = ('logo', 'name', 'company_type')
+    list_display = ('logo', 'name', 'company_type')
+    search_fields = ('name', 'company_type')
 
 
 class JobOpeningAdminForm(forms.ModelForm):
@@ -141,6 +141,13 @@ class JobOpeningAdmin(admin.ModelAdmin):
     fields = ('employment_type', 'experience_required', 'title', 'location', 'description')
     list_display = ('title', 'location')
     search_fields = ('title', 'location')
+
+
+@admin.register(Opening)
+class OpeningAdmin(admin.ModelAdmin):
+    fields = ('type_of_job', 'background_image', 'heading', 'address', 'short_description')
+    list_display = ('heading', 'type_of_job', 'address')
+    search_fields = ('heading', 'type_of_job', 'address')
 
 
 @admin.register(JobApplication)

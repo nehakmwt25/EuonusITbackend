@@ -124,9 +124,14 @@ class Award(models.Model):
 class Company(models.Model):
     name = models.CharField(max_length=160)
     logo = models.ImageField(upload_to='companies/', blank=True, null=True)
+    company_type = models.CharField('Type of the company', max_length=120, blank=True)
     website = models.URLField(blank=True)
     description = models.TextField(blank=True)
     is_active = models.BooleanField(default=True)
+
+    class Meta:
+        verbose_name = 'Company'
+        verbose_name_plural = 'Companies'
 
     def __str__(self): return self.name
 
@@ -147,11 +152,28 @@ class JobOpening(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name_plural = 'JobOpenings'
+
     def save(self, *args, **kwargs):
         self.slug = self.slug or slugify(self.title)
         super().save(*args, **kwargs)
 
     def __str__(self): return self.title
+
+
+class Opening(models.Model):
+    type_of_job = models.CharField('Type of job', max_length=120)
+    background_image = models.ImageField(upload_to='openings/', blank=True, null=True)
+    heading = models.CharField(max_length=180)
+    address = models.CharField(max_length=255)
+    short_description = models.TextField()
+
+    class Meta:
+        verbose_name = 'Opening'
+        verbose_name_plural = 'Openings'
+
+    def __str__(self): return self.heading
 
 
 class JobApplication(models.Model):

@@ -224,8 +224,90 @@
         font-size: 0.9rem;
       }
 
+      .apply-section {
+        padding: 0 36px 48px;
+      }
+
+      .apply-box {
+        background: rgba(15, 23, 42, 0.72);
+        border: 1px solid var(--border);
+        border-radius: 22px;
+        padding: 28px;
+      }
+
+      .apply-header {
+        margin-bottom: 22px;
+      }
+
+      .apply-header h2 {
+        margin: 0 0 10px;
+        font-size: clamp(1.9rem, 3vw, 2.6rem);
+      }
+
+      .apply-header p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .apply-form {
+        display: grid;
+        gap: 18px;
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .field label {
+        color: var(--text);
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+
+      .field input,
+      .field select {
+        width: 100%;
+        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        color: var(--text);
+        padding: 13px 14px;
+        font-size: 0.98rem;
+        outline: none;
+      }
+
+      .field input:focus,
+      .field select:focus {
+        border-color: rgba(94, 234, 212, 0.7);
+        box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.15);
+      }
+
+      .submit-btn {
+        border: none;
+        cursor: pointer;
+        background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+        color: #06232d;
+        border-radius: 12px;
+        padding: 15px 18px;
+        font-size: 1rem;
+        font-weight: 700;
+      }
+
       @media (max-width: 820px) {
         .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .field-grid {
           grid-template-columns: 1fr;
         }
 
@@ -297,6 +379,53 @@
             </div>
           </div>
         </aside>
+      </section>
+
+      <section class="apply-section" aria-labelledby="apply-title">
+        <div class="apply-box">
+          <div class="apply-header">
+            <h2 id="apply-title">Apply for a role</h2>
+            <p>Share your details below and we’ll get back to you about the position that fits your skills.</p>
+          </div>
+
+          <form class="apply-form">
+            <div class="field-grid">
+              <div class="field">
+                <label for="full-name">Full name</label>
+                <input id="full-name" name="full_name" type="text" placeholder="Enter your full name" />
+              </div>
+
+              <div class="field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" placeholder="Enter your email address" />
+              </div>
+
+              <div class="field">
+                <label for="city">City</label>
+                <input id="city" name="city" type="text" placeholder="Enter your city" />
+              </div>
+
+              <div class="field">
+                <label for="contact">Contact</label>
+                <input id="contact" name="contact" type="tel" placeholder="Enter your contact number" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="role">Role</label>
+              <select id="role" name="role">
+                <option value="">Select a role</option>
+                <option value="frontend-developer">Frontend Developer</option>
+                <option value="backend-developer">Backend Developer</option>
+                <option value="full-stack-developer">Full Stack Developer</option>
+                <option value="ui-ux-designer">UI/UX Designer</option>
+                <option value="project-manager">Project Manager</option>
+              </select>
+            </div>
+
+            <button type="submit" class="submit-btn">Apply now</button>
+          </form>
+        </div>
       </section>
     </main>
   </body>
